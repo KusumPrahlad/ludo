@@ -5,6 +5,7 @@
   ],
   "exclude": [
     "/_astro/*",
+    "/_redirects.json",
     "/icon.png",
     "/logo.png",
     "/ludo-home.jpg",

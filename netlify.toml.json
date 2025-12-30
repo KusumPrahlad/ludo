@@ -1,0 +1,3 @@
+[build]
+  command = "ASTRO_ADAPTER=netlify pnpm run build"
+  publish = "dist"

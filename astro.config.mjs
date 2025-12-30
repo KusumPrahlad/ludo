@@ -1,12 +1,18 @@
 // @ts-check
+import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
-import tailwindcss from "@tailwindcss/vite";
-import { defineConfig } from "astro/config";
+import netlify from '@astrojs/netlify';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+const isNetlify = process.env.ASTRO_ADAPTER === 'netlify';
+
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare(),
+
+  adapter: isNetlify
+    ? netlify({ edge: true })   // Netlify Edge
+    : cloudflare(),             // Cloudflare Workers
+
   vite: {
     plugins: [tailwindcss()],
   },
