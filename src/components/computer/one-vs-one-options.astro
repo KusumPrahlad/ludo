@@ -1,0 +1,265 @@
+---
+import { Image } from "astro:assets";
+import redHorse from "../../assets/horses/red.png";
+import blueHorse from "../../assets/horses/blue.png";
+import yellowHorse from "../../assets/horses/yellow.png";
+import greenHorse from "../../assets/horses/green.png";
+import computerImg from "../../assets/computer.png";
+---
+
+<section id="one-vs-one-options" class="space-y-5">
+  <div>
+    <h2 class="text-center text-xl">Enter player names</h2>
+    <p class="text-center text-gray-600">Select any one horse combination for your game.</p>
+  </div>
+  <div
+    id="red-green-combo"
+    aria-selected="true"
+    class="aria-selected:bg-ludon-green bg-gray-200 rounded-2xl p-4 *:flex *:items-center space-y-5"
+  >
+    <div class="space-x-4">
+      <Image src={redHorse} alt="Red horse" class="w-5 rounded-md" />
+      <input
+        type="text"
+        id="one-vs-one-p1-red-name"
+        value="Player 1"
+        placeholder="Player 1 Name"
+        class="h-9 rounded-xl text-center w-full bg-white"
+      />
+      <Image
+        src={computerImg}
+        alt="Computer"
+        id="computer-p1-red"
+        aria-selected="false"
+        class="bg-white p-1.5 w-10 h-10 rounded-xl aria-selected:bg-ludon-yellow cursor-pointer"
+      />
+    </div>
+    <div class="space-x-4">
+      <Image src={greenHorse} alt="Green horse" class="w-5 rounded-md" />
+      <input
+        type="text"
+        id="one-vs-one-p2-green-name"
+        value="Player 2"
+        placeholder="Player 2 Name"
+        class="h-9 rounded-xl text-center w-full bg-white"
+      />
+      <Image
+        src={computerImg}
+        alt="Computer"
+        id="computer-p2-green"
+        aria-selected="false"
+        class="bg-white p-1.5 w-10 h-10 rounded-xl aria-selected:bg-ludon-yellow cursor-pointer"
+      />
+    </div>
+  </div>
+  <div
+    id="blue-yellow-combo"
+    class="aria-selected:bg-ludon-green bg-gray-200 rounded-2xl p-4 *:flex *:items-center space-y-5"
+  >
+    <div class="space-x-4">
+      <Image src={blueHorse} alt="Blue horse" class="w-5 mr-5 rounded-md" />
+      <input
+        type="text"
+        id="one-vs-one-p1-blue-name"
+        value="Player 1"
+        placeholder="Player 1 Name"
+        class="h-9 rounded-xl text-center w-full bg-white"
+      />
+      <Image
+        src={computerImg}
+        alt="Computer"
+        id="computer-p1-blue"
+        aria-selected="false"
+        class="bg-white p-1.5 w-10 h-10 rounded-xl aria-selected:bg-ludon-yellow cursor-pointer"
+      />
+    </div>
+    <div class="space-x-4">
+      <Image src={yellowHorse} alt="Yellow horse" class="w-5 mr-5 rounded-md" />
+      <input
+        type="text"
+        id="one-vs-one-p2-yellow-name"
+        value="Player 2"
+        placeholder="Player 2 Name"
+        class="h-9 rounded-xl text-center w-full bg-white"
+      />
+      <Image
+        src={computerImg}
+        alt="Computer"
+        id="computer-p2-yellow"
+        aria-selected="false"
+        class="bg-white p-1.5 w-10 h-10 rounded-xl aria-selected:bg-ludon-yellow cursor-pointer"
+      />
+    </div>
+  </div>
+  <button id="start-game" class="bg-ludon-green text-white rounded-xl p-2.5 text-lg w-full">Start</button>
+</section>
+
+<script>
+  // Get elements
+  const redGreenCombo = document.getElementById("red-green-combo");
+  const blueYellowCombo = document.getElementById("blue-yellow-combo");
+  const player1RedInput = document.getElementById("one-vs-one-p1-red-name") as HTMLInputElement | null;
+  const player2GreenInput = document.getElementById("one-vs-one-p2-green-name") as HTMLInputElement | null;
+  const player1BlueInput = document.getElementById("one-vs-one-p1-blue-name") as HTMLInputElement | null;
+  const player2YellowInput = document.getElementById("one-vs-one-p2-yellow-name") as HTMLInputElement | null;
+  const startButton = document.getElementById("start-game") as HTMLButtonElement | null;
+
+  // Computer buttons
+  const computerP1Red = document.getElementById("computer-p1-red");
+  const computerP2Green = document.getElementById("computer-p2-green");
+  const computerP1Blue = document.getElementById("computer-p1-blue");
+  const computerP2Yellow = document.getElementById("computer-p2-yellow");
+  const computerButtons = [computerP1Red, computerP1Blue, computerP2Yellow, computerP2Green];
+
+  // Initialize from session storage or set defaults
+  sessionStorage.setItem("one-vs-one-horse-1", "red");
+  sessionStorage.setItem("one-vs-one-horse-2", "green");
+  sessionStorage.setItem("one-vs-one-computer-player", "4");
+  sessionStorage.setItem("one-vs-one-computer-player-color", "green");
+  sessionStorage.setItem("one-vs-one-player-1-name", "Player 1");
+  sessionStorage.setItem("one-vs-one-player-2-name", "Player 2");
+
+  // Set initial computer selection based on saved values
+  computerP2Green?.setAttribute("aria-selected", "true");
+
+  // Handle combo selection
+  redGreenCombo?.addEventListener("click", () => {
+    redGreenCombo.setAttribute("aria-selected", "true");
+    blueYellowCombo?.setAttribute("aria-selected", "false");
+    sessionStorage.setItem("one-vs-one-horse-1", "red");
+    sessionStorage.setItem("one-vs-one-horse-2", "green");
+
+    // Update computer selection for active combo
+    if (
+      computerP1Blue?.getAttribute("aria-selected") === "true" ||
+      computerP2Yellow?.getAttribute("aria-selected") === "true"
+    ) {
+      // Set default computer player for red-green combo
+      resetComputerSelection();
+      if (computerP2Green) {
+        computerP2Green.setAttribute("aria-selected", "true");
+        sessionStorage.setItem("one-vs-one-computer-player", "4");
+        sessionStorage.setItem("one-vs-one-computer-player-color", "green");
+      }
+    }
+  });
+
+  blueYellowCombo?.addEventListener("click", () => {
+    redGreenCombo?.setAttribute("aria-selected", "false");
+    blueYellowCombo.setAttribute("aria-selected", "true");
+    sessionStorage.setItem("one-vs-one-horse-1", "blue");
+    sessionStorage.setItem("one-vs-one-horse-2", "yellow");
+
+    // Update computer selection for active combo
+    if (
+      computerP1Red?.getAttribute("aria-selected") === "true" ||
+      computerP2Green?.getAttribute("aria-selected") === "true"
+    ) {
+      // Set default computer player for blue-yellow combo
+      resetComputerSelection();
+      if (computerP2Yellow) {
+        computerP2Yellow.setAttribute("aria-selected", "true");
+        sessionStorage.setItem("one-vs-one-computer-player", "3");
+        sessionStorage.setItem("one-vs-one-computer-player-color", "yellow");
+      }
+    }
+  });
+
+  // Handle computer selection
+  function resetComputerSelection() {
+    computerButtons.forEach((button) => {
+      if (button) {
+        button.setAttribute("aria-selected", "false");
+      }
+    });
+  }
+
+  computerButtons.forEach((button, index) => {
+    button?.addEventListener("click", () => {
+      const playerNumber = index + 1;
+      const isSelected = button.getAttribute("aria-selected") === "true";
+
+      // Reset all computer selections first
+      resetComputerSelection();
+
+      // Toggle selection for clicked button (if it was not selected, select it)
+      if (!isSelected) {
+        button.setAttribute("aria-selected", "true");
+        sessionStorage.setItem("one-vs-one-computer-player", `${playerNumber}`);
+        function getPlayerColorName(id: number) {
+          switch (id) {
+            case 1:
+              return "red";
+            case 2:
+              return "blue";
+            case 3:
+              return "yellow";
+            case 4:
+              return "green";
+          }
+        }
+
+        sessionStorage.setItem("one-vs-one-computer-player-color", `${getPlayerColorName(playerNumber)}`);
+      } else {
+        // If trying to deselect, reselect the default computer player
+        // We must always have one computer player
+        const activeCombo = redGreenCombo?.getAttribute("aria-selected") === "true" ? "red-green" : "blue-yellow";
+        if (activeCombo === "red-green") {
+          if (computerP2Green) {
+            computerP2Green.setAttribute("aria-selected", "true");
+            sessionStorage.setItem("one-vs-one-computer-player", "4");
+            sessionStorage.setItem("one-vs-one-computer-player-color", "green");
+          }
+        } else {
+          if (computerP2Yellow) {
+            computerP2Yellow.setAttribute("aria-selected", "true");
+            sessionStorage.setItem("one-vs-one-computer-player", "3");
+            sessionStorage.setItem("one-vs-one-computer-player-color", "yellow");
+          }
+        }
+      }
+    });
+  });
+
+  // Save player names
+  function savePlayerNames() {
+    let player1Name, player2Name;
+
+    if (redGreenCombo?.getAttribute("aria-selected") === "true") {
+      player1Name = player1RedInput?.value || "Player 1";
+      player2Name = player2GreenInput?.value || "Player 2";
+    } else {
+      player1Name = player1BlueInput?.value || "Player 1";
+      player2Name = player2YellowInput?.value || "Player 2";
+    }
+
+    sessionStorage.setItem("one-vs-one-player-1-name", player1Name);
+    sessionStorage.setItem("one-vs-one-player-2-name", player2Name);
+  }
+
+  // Save names on input change
+  player1RedInput?.addEventListener("input", savePlayerNames);
+  player2GreenInput?.addEventListener("input", savePlayerNames);
+  player1BlueInput?.addEventListener("input", savePlayerNames);
+  player2YellowInput?.addEventListener("input", savePlayerNames);
+
+  // Save names when start button is clicked
+  startButton?.addEventListener("click", () => {
+    savePlayerNames();
+
+    // Ensure at least one computer player is selected
+    const hasComputerPlayer = sessionStorage.getItem("one-vs-one-computer-player");
+    if (!hasComputerPlayer) {
+      // Set default computer player based on active combo
+      if (redGreenCombo?.getAttribute("aria-selected") === "true") {
+        sessionStorage.setItem("one-vs-one-computer-player", "4");
+        sessionStorage.setItem("one-vs-one-computer-player-color", "green");
+      } else {
+        sessionStorage.setItem("one-vs-one-computer-player", "3");
+        sessionStorage.setItem("one-vs-one-computer-player-color", "yellow");
+      }
+    }
+
+    window.location.href = "/game-board";
+  });
+</script>

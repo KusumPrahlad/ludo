@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_astro/*",
+    "/icon.png",
+    "/logo.png",
+    "/ludo-home.jpg",
+    "/white-star.png",
+    "/arrows/*",
+    "/crowns/*",
+    "/audio/*",
+    "/dice/*",
+    "/gifs/*",
+    "/horses/*",
+    "/scripts/*"
+  ]
+}
