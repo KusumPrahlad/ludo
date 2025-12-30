@@ -1259,7 +1259,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_DHo_3X_d.mjs'
+      './sharp_Cys8_fwl.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -1433,7 +1433,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   }
   const { class: className, ...attributes } = { ...additionalAttributes, ...image.attributes };
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}>`;
-}, "/Users/kusum/Documents/projects/ludon-main/node_modules/.pnpm/astro@5.5.5_jiti@2.4.2_lightningcss@1.29.2_rollup@4.38.0_typescript@5.8.2/node_modules/astro/components/Image.astro", void 0);
+}, "/Users/kusum/Documents/projects/ludo/node_modules/.pnpm/astro@5.5.5_jiti@2.4.2_lightningcss@1.29.2_rollup@4.38.0_typescript@5.8.2/node_modules/astro/components/Image.astro", void 0);
 
 const mimes = {
   "3g2": "video/3gpp2",
@@ -1951,7 +1951,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
     const srcsetAttribute = props.densities || !props.densities && !props.widths && !useResponsive ? `${image.src}${image.srcSet.values.length > 0 ? ", " + image.srcSet.attribute : ""}` : image.srcSet.attribute;
     return renderTemplate`<source${addAttribute(srcsetAttribute, "srcset")}${addAttribute(lookup(image.options.format ?? image.src) ?? `image/${image.options.format}`, "type")}${spreadAttributes(sourceAdditionalAttributes)}>`;
   })}  <img${addAttribute(fallbackImage.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}> </picture>`;
-}, "/Users/kusum/Documents/projects/ludon-main/node_modules/.pnpm/astro@5.5.5_jiti@2.4.2_lightningcss@1.29.2_rollup@4.38.0_typescript@5.8.2/node_modules/astro/components/Picture.astro", void 0);
+}, "/Users/kusum/Documents/projects/ludo/node_modules/.pnpm/astro@5.5.5_jiti@2.4.2_lightningcss@1.29.2_rollup@4.38.0_typescript@5.8.2/node_modules/astro/components/Picture.astro", void 0);
 
 const imageConfig = {"endpoint":{"route":"/_image","entrypoint":"@astrojs/cloudflare/image-endpoint"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"experimentalResponsiveImages":false};
 					const getImage = async (options) => await getImage$1(options, imageConfig);
@@ -1962,7 +1962,7 @@ const redHorse = new Proxy({"src":"/_astro/red.DQx7QFHi.png","width":113,"height
 								return structuredClone(target);
 							}
 							if (name === 'fsPath') {
-								return "/Users/kusum/Documents/projects/ludon-main/src/assets/horses/red.png";
+								return "/Users/kusum/Documents/projects/ludo/src/assets/horses/red.png";
 							}
 							
 							return target[name];
@@ -1975,7 +1975,7 @@ const blueHorse = new Proxy({"src":"/_astro/blue.D4qQBM5X.png","width":115,"heig
 								return structuredClone(target);
 							}
 							if (name === 'fsPath') {
-								return "/Users/kusum/Documents/projects/ludon-main/src/assets/horses/blue.png";
+								return "/Users/kusum/Documents/projects/ludo/src/assets/horses/blue.png";
 							}
 							
 							return target[name];
@@ -1988,7 +1988,7 @@ const yellowHorse = new Proxy({"src":"/_astro/yellow.BqBxYPOl.png","width":114,"
 								return structuredClone(target);
 							}
 							if (name === 'fsPath') {
-								return "/Users/kusum/Documents/projects/ludon-main/src/assets/horses/yellow.png";
+								return "/Users/kusum/Documents/projects/ludo/src/assets/horses/yellow.png";
 							}
 							
 							return target[name];
@@ -2001,7 +2001,7 @@ const greenHorse = new Proxy({"src":"/_astro/green.CQSVKFX5.png","width":115,"he
 								return structuredClone(target);
 							}
 							if (name === 'fsPath') {
-								return "/Users/kusum/Documents/projects/ludon-main/src/assets/horses/green.png";
+								return "/Users/kusum/Documents/projects/ludo/src/assets/horses/green.png";
 							}
 							
 							return target[name];
