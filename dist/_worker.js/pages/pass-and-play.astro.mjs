@@ -1,7 +1,7 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
 import { c as createComponent, m as maybeRenderHead, r as renderComponent, a as renderScript, b as renderTemplate } from '../chunks/astro/server_Cqmuhjlt.mjs';
 import { $ as $$Layout } from '../chunks/utils_D_k0r8C5.mjs';
-import { $ as $$Image, r as redHorse, g as greenHorse, b as blueHorse, y as yellowHorse } from '../chunks/green_BEf7CZjA.mjs';
+import { $ as $$Image, r as redHorse, g as greenHorse, b as blueHorse, y as yellowHorse } from '../chunks/green_BUKaW0LH.mjs';
 import { $ as $$SelectGameMode } from '../chunks/select-game-mode_DXqBZCvt.mjs';
 export { renderers } from '../renderers.mjs';
 

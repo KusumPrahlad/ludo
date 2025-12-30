@@ -1,7 +1,7 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
 import { renderers } from './renderers.mjs';
 import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_CkwMYDYR.mjs';
-import { manifest } from './manifest_tClx5Wrk.mjs';
+import { manifest } from './manifest_DyLcIR2J.mjs';
 
 const serverIslandMap = new Map();;
 
@@ -11,7 +11,7 @@ const _page2 = () => import('./pages/game-board.astro.mjs');
 const _page3 = () => import('./pages/pass-and-play.astro.mjs');
 const _page4 = () => import('./pages/index.astro.mjs');
 const pageMap = new Map([
-    ["node_modules/.pnpm/@astrojs+cloudflare@12.3.1_astro@5.5.5_jiti@2.4.2_lightningcss@1.29.2_rollup@4.38.0_typ_6af3cd0770272257ad88969060b2139b/node_modules/@astrojs/cloudflare/dist/entrypoints/image-endpoint.js", _page0],
+    ["node_modules/.pnpm/@astrojs+cloudflare@12.3.1_@types+node@25.0.3_astro@5.5.5_@netlify+blobs@10.5.0_@types+_5e0af0703b080b42987f0e0c715b2945/node_modules/@astrojs/cloudflare/dist/entrypoints/image-endpoint.js", _page0],
     ["src/pages/computer.astro", _page1],
     ["src/pages/game-board.astro", _page2],
     ["src/pages/pass-and-play.astro", _page3],
