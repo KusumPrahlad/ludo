@@ -12,11 +12,11 @@
     "/ludo-home.jpg",
     "/white-star.png",
     "/arrows/*",
-    "/audio/*",
     "/crowns/*",
+    "/audio/*",
     "/dice/*",
     "/gifs/*",
-    "/scripts/*",
-    "/horses/*"
+    "/horses/*",
+    "/scripts/*"
   ]
 }
