@@ -1,10 +1,17 @@
-import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
+// @ts-check
+import cloudflare from '@astrojs/cloudflare';
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
+// https://astro.build/config
 export default defineConfig({
-  output: 'server', // if you use SSR
-  adapter: netlify(),
-  experimental: {
-    session: true, // enable session support
-  },
+  output: 'server',
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    }
+  }),
+  vite: {
+    plugins: [tailwindcss()],
+  }
 });

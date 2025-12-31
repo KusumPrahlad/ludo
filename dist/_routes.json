@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/_astro/*",
+    "/.DS_Store",
+    "/icon.png",
+    "/logo.png",
+    "/ludo-home.jpg",
+    "/white-star.png",
+    "/arrows/*",
+    "/audio/*",
+    "/crowns/*",
+    "/dice/*",
+    "/gifs/*",
+    "/scripts/*",
+    "/horses/*"
+  ]
+}

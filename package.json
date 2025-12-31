@@ -10,8 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.3.1",
-    "@astrojs/netlify": "^6.6.3",
+    "@astrojs/cloudflare": "^12.6.12",
     "@tailwindcss/vite": "^4.0.17",
     "astro": "^5.5.5",
     "clsx": "^2.1.1",
