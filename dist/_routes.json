@@ -16,7 +16,7 @@
     "/crowns/*",
     "/dice/*",
     "/gifs/*",
-    "/horses/*",
-    "/scripts/*"
+    "/scripts/*",
+    "/horses/*"
   ]
 }

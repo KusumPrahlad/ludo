@@ -14,10 +14,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  experimental: {
-    session: true
-  },
    image: {
-    service: "compile"
+    service: {
+      entrypoint: "astro/assets/services/compile"
+    }
   }
 });
