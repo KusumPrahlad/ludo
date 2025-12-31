@@ -6,16 +6,17 @@
   "exclude": [
     "/_astro/*",
     "/.DS_Store",
+    "/.assetsignore",
     "/icon.png",
     "/logo.png",
     "/ludo-home.jpg",
     "/white-star.png",
     "/arrows/*",
-    "/audio/*",
+    "/gifs/*",
+    "/horses/*",
     "/crowns/*",
     "/dice/*",
-    "/gifs/*",
-    "/scripts/*",
-    "/horses/*"
+    "/audio/*",
+    "/scripts/*"
   ]
 }
