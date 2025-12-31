@@ -9,12 +9,16 @@ export default defineConfig({
   adapter: cloudflare({
     platformProxy: {
       enabled: true
+    },
+    session: {
+      driver: "cloudflare-kv", // Enable KV-based sessions
+      binding: "SESSION"       // Must match your KV binding in Cloudflare Pages
     }
   }),
   vite: {
     plugins: [tailwindcss()],
   },
-   image: {
+  image: {
     service: {
       entrypoint: "astro/assets/services/compile"
     }

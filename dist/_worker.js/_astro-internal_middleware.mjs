@@ -1,7 +1,11 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
-import './chunks/astro-designed-error-pages_D6blqWHa.mjs';
+import { d as defineMiddleware, s as sequence } from './chunks/index_Dfy_e-gP.mjs';
+import './chunks/astro-designed-error-pages_CHEBw8N2.mjs';
 import './chunks/astro/server_BQtY0g0a.mjs';
-import { s as sequence } from './chunks/index_CTQQPFOC.mjs';
+
+const onRequest$2 = defineMiddleware(async (ctx, next) => {
+  return next();
+});
 
 const onRequest$1 = (context, next) => {
   if (context.isPrerendered) {
@@ -14,7 +18,7 @@ const onRequest$1 = (context, next) => {
 
 const onRequest = sequence(
 	onRequest$1,
-	
+	onRequest$2
 	
 );
 

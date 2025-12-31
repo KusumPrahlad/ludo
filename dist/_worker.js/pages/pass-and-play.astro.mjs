@@ -1,9 +1,9 @@
 globalThis.process ??= {}; globalThis.process.env ??= {};
 import { c as createComponent, m as maybeRenderHead, r as renderComponent, a as renderScript, b as renderTemplate } from '../chunks/astro/server_BQtY0g0a.mjs';
-import { $ as $$Layout } from '../chunks/utils_DBeFNv-T.mjs';
-import { $ as $$Image } from '../chunks/_astro_assets_CkfsA81w.mjs';
+import { $ as $$Layout } from '../chunks/utils_DWh1gUMu.mjs';
+import { $ as $$Image } from '../chunks/_astro_assets_BDX-qWvf.mjs';
 import { r as redHorse, g as greenHorse, b as blueHorse, y as yellowHorse } from '../chunks/green_BAJewDlO.mjs';
-import { $ as $$SelectGameMode } from '../chunks/select-game-mode_CRlRoVrH.mjs';
+import { $ as $$SelectGameMode } from '../chunks/select-game-mode_qLZcWWWo.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$OneVsOneOptions = createComponent(($$result, $$props, $$slots) => {
